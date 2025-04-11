@@ -1,0 +1,38 @@
+let
+  /* Read a positive integer from the standard input.
+     Returns -1 on error */
+  function read_unsigned() : int =
+    let
+      var res : int := 0
+      var c : string := getchar()
+      var valid : int := 1
+      var digit_count : int := 0
+
+      function is_digit(s : string) : int = 
+        if s = "" then 0
+        else ord(s) >= 48 & ord(s) <= 57
+    in
+      while c = " " do
+        c := getchar();
+      
+      while c <> "\n" & c <> "" do (
+        if is_digit(c) then (
+          res := res * 10 + (ord(c) - 48);
+          digit_count := digit_count + 1;
+          c := getchar() 
+        )
+        else (
+          valid := 0;
+          while c <> "\n" & c <> "" do 
+            c := getchar()
+        )
+      );
+
+      if valid = 1 & digit_count > 0 then res else -1
+    end
+
+  var a : int := read_unsigned() 
+in
+  print_int(a*2);
+  print("\n") 
+end
