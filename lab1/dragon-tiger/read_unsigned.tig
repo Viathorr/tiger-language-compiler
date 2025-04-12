@@ -9,13 +9,12 @@ let
       var digit_count : int := 0
 
       function is_digit(s : string) : int = 
-        if s = "" then 0
-        else ord(s) >= 48 & ord(s) <= 57
+        if s = "" then 
+          0
+        else 
+          ord(s) >= 48 & ord(s) <= 57
     in
-      while c = " " do
-        c := getchar();
-      
-      while c <> "\n" & c <> "" do (
+      while c <> "\n" do (
         if is_digit(c) then (
           res := res * 10 + (ord(c) - 48);
           digit_count := digit_count + 1;
@@ -23,12 +22,15 @@ let
         )
         else (
           valid := 0;
-          while c <> "\n" & c <> "" do 
+          while c <> "\n" do 
             c := getchar()
         )
       );
 
-      if valid = 1 & digit_count > 0 then res else -1
+      if valid = 1 & digit_count > 0 then 
+        res 
+      else 
+        -1
     end
 
   var a : int := read_unsigned() 
