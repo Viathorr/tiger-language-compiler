@@ -1,5 +1,6 @@
 *.o
-
+*.png
+*.jpg
 **/hello
 **/fibonacci
 **/read_unsigned
